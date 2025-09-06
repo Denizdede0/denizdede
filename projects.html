@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeler | Deniz Dede</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <header class="navbar" data-shrink>
+        <div class="container nav-inner">
+            <h1 class="logo"><a href="index.html">Deniz Dede</a></h1>
+            <nav class="nav-drawer" id="drawer">
+                <a class="nav-link" href="index.html">Ana Sayfa</a>
+                <a class="nav-link" href="projects.html">Projeler</a>
+                <a class="nav-link" href="about.html">Hakkımda</a>
+                <a class="nav-link" href="contact.html">İletişim</a>
+            </nav>
+            <div class="nav-right">
+                <button id="darkModeToggle" class="icon-btn">🌙</button>
+                <button id="drawerToggle" class="hamburger"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+        <div class="active-underline"></div>
+    </header>
+
+    <main>
+        <section class="projects" data-animate>
+            <div class="container">
+                <h2>Projeler</h2>
+                <div class="filters">
+                    <button data-filter="all" class="chip active">Tümü</button>
+                    <button data-filter="react" class="chip">React</button>
+                    <button data-filter="js" class="chip">JavaScript</button>
+                    <button data-filter="css" class="chip">CSS</button>
+                </div>
+                <div class="project-grid" id="projectGrid"></div>
+            </div>
+        </section>
+
+        <div id="projectModal" class="modal">
+            <div class="modal-content">
+                <button class="close">&times;</button>
+                <h3 id="modalTitle"></h3>
+                <img id="modalImg" src="" alt="" />
+                <p id="modalDesc"></p>
+                <div id="modalTech"></div>
+            </div>
+        </div>
+    </main>
+
+    <button id="backToTop" class="back-to-top">↑</button>
+    <footer>
+        <div class="container">
+            <p>© 2025 Deniz Dede</p>
+            <div class="socials">
+                <a href="https://github.com/Denizdede0"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:dnzdd07@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+    <div id="cursorGlow"></div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deniz Dede | Frontend Developer</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="navbar" data-shrink>
+        <div class="container nav-inner">
+            <h1 class="logo"><a href="index.html">Deniz Dede</a></h1>
+            <nav class="nav-drawer" id="drawer">
+                <a class="nav-link" href="index.html">Ana Sayfa</a>
+                <a class="nav-link" href="projects.html">Projeler</a>
+                <a class="nav-link" href="about.html">Hakkımda</a>
+                <a class="nav-link" href="contact.html">İletişim</a>
+            </nav>
+            <div class="nav-right">
+                <button id="darkModeToggle" class="icon-btn" aria-label="Karanlık/Aydınlık">🌙</button>
+                <button id="drawerToggle" class="hamburger"
+                    aria-label="Menü"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+        <div class="active-underline"></div>
+    </header>
+
+    <main>
+        <section class="hero" data-animate>
+            <div class="container hero-inner">
+                <div class="hero-text">
+                    <h2 class="typewriter">Modern ve hızlı web uygulamaları geliştiriyorum 🚀</h2>
+                    <p class="lead">Performans, erişilebilirlik ve kullanıcı deneyimine odaklanırım.</p>
+                    <div class="cta">
+                        <a href="projects.html" class="btn primary">Projelerimi Gör</a>
+                        <a href="contact.html" class="btn ghost">İletişime Geç</a>
+                    </div>
+                </div>
+                <div class="hero-art" aria-hidden="true">
+                    <svg viewBox="0 0 300 300" class="hero-svg">
+                        <defs>
+                            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="var(--primary)" />
+                                <stop offset="1" stop-color="var(--accent)" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="120" cy="120" r="90" fill="url(#g1)" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" data-animate>
+            <div class="container features-grid">
+                <article class="feature">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Hız</h3>
+                    <p>Optimize ve hafif arayüzler.</p>
+                </article>
+                <article class="feature">
+                    <i class="fa-solid fa-universal-access"></i>
+                    <h3>Erişilebilirlik</h3>
+                    <p>Herkes için ulaşılabilir tasarımlar.</p>
+                </article>
+                <article class="feature">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Güvenilirlik</h3>
+                    <p>Test edilmiş ve sağlam projeler.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <button id="backToTop" class="back-to-top">↑</button>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Deniz Dede</p>
+            <div class="socials">
+                <a href="https://github.com/Denizdede0"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:dnzdd07@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cursorGlow"></div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

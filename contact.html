@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İletişim | Deniz Dede</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* Notification stili */
+        #formNotification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            border-radius: 5px;
+            color: #fff;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+        }
+
+        #formNotification.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #formNotification.success {
+            background: #4caf50;
+        }
+
+        #formNotification.error {
+            background: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar" data-shrink>
+        <div class="container nav-inner">
+            <h1 class="logo"><a href="index.html">Deniz Dede</a></h1>
+            <nav class="nav-drawer" id="drawer">
+                <a class="nav-link" href="index.html">Ana Sayfa</a>
+                <a class="nav-link" href="projects.html">Projeler</a>
+                <a class="nav-link" href="about.html">Hakkımda</a>
+                <a class="nav-link" href="contact.html">İletişim</a>
+            </nav>
+            <div class="nav-right">
+                <button id="darkModeToggle" class="icon-btn">🌙</button>
+                <button id="drawerToggle" class="hamburger"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+        <div class="active-underline"></div>
+    </header>
+
+    <main>
+        <section class="contact" data-animate>
+            <div class="container">
+                <h2>İletişim</h2>
+
+                <form id="contactForm" action="https://formspree.io/f/xovnyjrv" method="POST">
+                    <input type="text" name="name" placeholder="İsminiz" required />
+                    <input type="email" name="email" placeholder="E-posta" required />
+                    <textarea name="message" rows="5" placeholder="Mesajınız" required></textarea>
+                    <input type="text" name="_gotcha" style="display:none" />
+                    <button type="submit" class="btn primary">Gönder</button>
+                </form>
+
+
+            </div>
+        </section>
+    </main>
+
+    <button id="backToTop" class="back-to-top">↑</button>
+    <footer>
+        <div class="container">
+            <p>© 2025 Deniz Dede</p>
+            <div class="socials">
+                <a href="https://github.com/Denizdede0"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:dnzdd07@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div id="formNotification"></div>
+
+    <div id="cursorGlow"></div>
+    <script src="js/script.js"></script>
+    <script>
+        // ===== Contact form AJAX + notification =====
+        const form = document.querySelector('#contactForm');
+        const notification = document.querySelector('#formNotification');
+
+        if (form && notification) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const data = new FormData(form);
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        showNotification('Mesajınız gönderildi, teşekkürler!', true);
+                        form.reset();
+                    } else {
+                        showNotification('Hata oluştu, lütfen tekrar deneyin.', false);
+                    }
+                } catch {
+                    showNotification('Hata oluştu, lütfen tekrar deneyin.', false);
+                }
+            });
+
+            function showNotification(text, success = true) {
+                notification.textContent = text;
+                notification.className = `show ${success ? 'success' : 'error'}`;
+                setTimeout(() => { notification.className = ''; }, 4000);
+            }
+        }
+    </script>
+</body>
+
+</html>
